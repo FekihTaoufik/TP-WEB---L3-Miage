@@ -1,0 +1,214 @@
+        table td,
+        table th {
+            padding: 3px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .invisible {
+            border: none;
+        }
+
+        .empty {
+            border: 1px dashed black;
+            border-collapse: collapse;
+        }
+
+        .no-top-border {
+            border-top: none;
+        }
+
+        .no-right-border {
+            border-right: none;
+        }
+
+        .style1,
+        .style2,
+        .style3 {
+            border-radius: .5em;
+            color: white;
+            text-align: center;
+            box-shadow: 1px 1px 0px black;
+        }
+
+        .style3 {
+            background-color: rgb(128, 100, 162);
+            border: 2px outset rgb(59, 97, 142);
+        }
+
+        .style2 {
+            border: 2px outset rgb(147, 178, 84);
+            background-color: rgb(155, 187, 89);
+        }
+
+        .style1 {
+            border: 2px outset rgb(59, 97, 142);
+            background-color: rgb(59, 129, 189);
+        }
+
+        .transparency {
+            opacity: .5;
+        }
+
+        table {
+            border-spacing: 1px;
+        }
+
+        table caption {
+            caption-side: bottom;
+            font-weight: 900;
+        }
+
+        table tr {
+            border: 0;
+            margin: 0;
+        }
+
+        table td {
+            padding: 13px;
+        }
+
+        .align-top {
+            vertical-align: top;
+            padding: 0px;
+        }
+
+        .joint-block {
+            display: block;
+            background-color: rgb(59, 129, 189);
+            width: 20px;
+            height: 5px;
+            position: absolute;
+            right: -12px;
+            height: 100%;
+            top: -2px;
+            border-top: 2px solid rgb(59, 97, 142);
+        }
+
+        img.etoile {
+            position: absolute;
+            height: 30px;
+            right: -15px;
+            animation: fait-le-tour 6s infinite;
+            -webkit-animation: fait-le-tour 6s infinite;
+            -moz-animation: fait-le-tour 6s infinite;
+            -o-animation: fait-le-tour 6s infinite;
+        }
+
+        @-webkit-keyframes fait-le-tour {
+            0% {
+                bottom: -15px;
+                right: -15px;
+            }
+
+            25% {
+                top: -15px;
+                right: -15px;
+            }
+
+            50% {
+                left: -15px;
+                top: -15px;
+
+            }
+
+            75% {
+                left: -15px;
+                bottom: -15px;
+            }
+
+            100% {
+                bottom: -15px;
+                right: -15px;
+            }
+        }
+
+        @-moz-keyframes fait-le-tour {
+            0% {
+                bottom: -15px;
+                right: -15px;
+            }
+
+            25% {
+                top: -15px;
+                right: -15px;
+            }
+
+            50% {
+                left: -15px;
+                top: -15px;
+
+            }
+
+            75% {
+                left: -15px;
+                bottom: -15px;
+            }
+
+            100% {
+                bottom: -15px;
+                right: -15px;
+            }
+        }
+
+        @-o-keyframes fait-le-tour {
+            0% {
+                bottom: -15px;
+                right: -15px;
+            }
+
+            25% {
+                top: -15px;
+                right: -15px;
+            }
+
+            50% {
+                left: -15px;
+                top: -15px;
+
+            }
+
+            75% {
+                left: -15px;
+                bottom: -15px;
+            }
+
+            100% {
+                bottom: -15px;
+                right: -15px;
+            }
+        }
+
+        @keyframes fait-le-tour {
+            0% {
+                bottom: -15px;
+                right: -15px;
+            }
+
+            25% {
+                top: -15px;
+                right: -15px;
+            }
+
+            50% {
+                left: -15px;
+                top: -15px;
+
+            }
+
+            75% {
+                left: -15px;
+                bottom: -15px;
+            }
+
+            100% {
+                bottom: -15px;
+                right: -15px;
+            }
+        }

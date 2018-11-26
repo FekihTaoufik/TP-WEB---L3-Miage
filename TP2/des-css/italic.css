@@ -1,0 +1,12 @@
+body {
+font-style: italic;
+}
+
+p {
+border: black thin solid;
+font-size: 14;
+}
+
+h1 {
+font-variant: small-caps;
+}
