@@ -1,7 +1,36 @@
-
+function previsualisation(file_path){
+    var el,prev = document.querySelector('#previsualisation');
+    var ext = {
+        image: ['jpeg','png','jpg','gif'],
+        sound:['mp3','wav']
+    }
+    var file_ext = file_path.split('.')[file_path.split('.').length-1] ;
+    if(ext.image.includes(file_ext) ){
+        console.log("THIS IS IMAGE")
+        el = document.createElement('img');
+        el.src = file_path
+    }else if (ext.sound.includes(file_ext)){
+        console.log("THIS IS SOUND")
+        el = document.createElement('audio');
+        el.src = file_path
+    }
+    prev.appendChild(el)
+}
 function make_table(fichiers){
     if(document.getElementById('resultats'))
         document.getElementById('resultats').remove();
+
+    var main_tbl = document.createElement('table');
+    main_tbl.setAttribute('style','width:100%');
+    main_tbl.appendChild(document.createElement('tbody'))
+    main_tbl.children[0].appendChild(document.createElement('tr'))
+    main_tbl.children[0].children[0].appendChild(document.createElement('td'))
+    main_tbl.children[0].children[0].children[0].setAttribute('style','width:50%')
+    var prev_td = document.createElement('td');
+    prev_td.setAttribute('id','previsualisation');
+    prev_td.setAttribute('style','width:50%')
+    main_tbl.children[0].children[0].appendChild(prev_td)
+
     var tbl = document.createElement('table');
     tbl.setAttribute('id','resultats');
     var tbdy = document.createElement('tbody');
@@ -43,20 +72,27 @@ function make_table(fichiers){
         tr.appendChild(td_date_modification);
         tr.appendChild(td_taille);
         tr.appendChild(td_extension);
+
         tr.directory_path = f.path_fichier;
+        tr.file_type = f.type;
+
+        console.log("this one ",f.type,tr.file_type)
         tr.addEventListener('mouseover',function(event){
             this.setAttribute('style','color:red;cursor:pointer;');
         });
         tr.addEventListener('mouseout',function(event){
             this.setAttribute('style','');
         });
-        if(f.type =='dir')
-            tr.addEventListener('click',function(event){
+        
+        tr.addEventListener('click',function(event){
+            if(this.file_type =='dir'){
                 event.preventDefault();
-                console.log(this.directory_path);
-                document.getElementById('chemin').value = this.directory_path;
-                event.keyCode = 13;
-                ask(event);
+                    document.getElementById('chemin').value = this.directory_path;
+                    event.keyCode = 13;
+                    ask(event);
+        }else{
+            previsualisation(this.directory_path,this.file_type)
+        }
             })
 
         tbdy.appendChild(tr);
@@ -64,7 +100,10 @@ function make_table(fichiers){
     }
        tbl.appendChild(thead);
        tbl.appendChild(tbdy);
-       return tbl;
+
+       main_tbl.children[0].children[0].children[0].appendChild(tbl)
+
+       return main_tbl;
 }
 function ask(event) {
     if (typeof event !='undefined') {
